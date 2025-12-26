@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>nuarfa_yang_portfolio</title>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+
+    <style>
+        body {
+            font-family: 'Prompt', sans-serif;
+            /* Anime Sky Background */
+            background-image: url('https://images.unsplash.com/photo-1513002749550-c59d786b8e6c?q=80&w=2574&auto=format&fit=crop'); 
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            color: #475569; /* slate-600 */
+        }
+        
+        /* Glassmorphism Effect */
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.75);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.6);
+            box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.1);
+        }
+
+        .glass-card {
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 16px;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(255, 255, 255, 0.8);
+        }
+        
+        .glass-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(236, 72, 153, 0.15); /* Pink Glow */
+            border-color: #fbcfe8; /* pink-200 */
+        }
+
+        /* Avatar Glow */
+        .avatar-glow {
+            box-shadow: 0 0 0 4px rgba(255, 255, 255, 0.8), 
+                        0 0 20px rgba(236, 72, 153, 0.4);
+        }
+
+        /* Animated Tab Underline */
+        .tab-btn {
+            position: relative;
+            color: #64748b;
+        }
+        .tab-btn::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 50%;
+            width: 0;
+            height: 3px;
+            background: linear-gradient(90deg, #ec4899, #8b5cf6); /* Gradient Pink-Purple */
+            transition: all 0.3s ease;
+            border-radius: 99px;
+            transform: translateX(-50%);
+        }
+        .tab-btn.active {
+            color: #ec4899; /* pink-500 */
+            font-weight: 600;
+        }
+        .tab-btn.active::after {
+            width: 80%;
+        }
+        .tab-btn:hover {
+            color: #ec4899;
+        }
+
+        /* Status Badge Pulse */
+        @keyframes soft-pulse {
+            0% { box-shadow: 0 0 0 0 rgba(74, 222, 128, 0.4); }
+            70% { box-shadow: 0 0 0 6px rgba(74, 222, 128, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(74, 222, 128, 0); }
+        }
+        .status-pulse {
+            animation: soft-pulse 2s infinite;
+        }
+
+        .fade-in {
+            animation: fadeIn 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body class="min-h-screen pb-12 overflow-x-hidden">
+
+    <div class="fixed top-0 left-0 w-full h-full pointer-events-none bg-gradient-to-b from-white/30 to-transparent z-0"></div>
+
+    <div class="max-w-md mx-auto mt-8 mb-10 relative z-10">
+        
+        <div class="glass-panel rounded-3xl overflow-hidden p-6 mx-4">
+            
+            <div class="flex flex-col items-center relative">
+                <div class="w-32 h-32 rounded-full avatar-glow overflow-hidden bg-white mb-4 relative group cursor-pointer">
+                    <img src="https://scontent.furt2-1.fna.fbcdn.net/v/t39.30808-6/560508897_122184780134328858_3226580901312601225_n.jpg?_nc_cat=102&ccb=1-7&_nc_sid=6ee11a&_nc_ohc=BS6dIqKDL-8Q7kNvwHzJ3tq&_nc_oc=AdmkVMP1KsR52jgpADKCxTuO531ZexxAjV2pV-QjaWHMnM3QS7xBhcdjLSqpaV6tVgza06KvovU9ldylAulgGOj0&_nc_zt=23&_nc_ht=scontent.furt2-1.fna&_nc_gid=NO9_Wqn1kmwjmO5MxZ2hhw&oh=00_AfnFXxlEfy4s8yHNf429MVGMnLC75NIfNozyUrEhqh2Juw&oe=695496A9" 
+                         alt="Avatar" 
+                         class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+                </div>
+
+                <h1 class="text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-pink-500 to-purple-600">
+                    nuarfa_yang
+                </h1>
+                <p class="text-slate-400 text-xs tracking-wider mb-2">@nuarfa_yang</p>
+                
+                <div class="bg-white/50 rounded-xl p-3 text-center text-sm text-slate-600 leading-relaxed w-full border border-white/60 mb-4">
+                    <span class="text-pink-400">✧</span> Digital Artist 🇹🇭 <span class="text-pink-400">✧</span><br>
+                    Fanart & Original Characters<br>
+                    <span class="text-xs text-slate-400">"Drawing dreams into reality"</span>
+                </div>
+                
+                <div id="status-open" class="status-pulse inline-flex items-center px-4 py-1.5 rounded-full text-xs font-semibold bg-green-100/80 text-green-600 border border-green-200">
+                    <span class="w-2 h-2 rounded-full bg-green-400 mr-2"></span>
+                    COMMISSION OPEN
+                </div>
+
+                <div id="status-closed" class="hidden inline-flex items-center px-4 py-1.5 rounded-full text-xs font-semibold bg-slate-100/80 text-slate-500 border border-slate-200">
+                    <span class="w-2 h-2 rounded-full bg-slate-400 mr-2"></span>
+                    CLOSED
+                </div>
+            </div>
+
+            <div class="flex justify-between mt-8 mb-6 border-b border-slate-200/60 pb-1 px-2">
+                <button onclick="switchTab('socials')" id="btn-socials" class="tab-btn active flex-1 py-2 text-sm">
+                    Socials
+                </button>
+                <button onclick="switchTab('commissions')" id="btn-commissions" class="tab-btn flex-1 py-2 text-sm">
+                    Commissions
+                </button>
+                <button onclick="switchTab('gallery')" id="btn-gallery" class="tab-btn flex-1 py-2 text-sm">
+                    Gallery
+                </button>
+            </div>
+
+            <div class="min-h-[300px]">
+
+                <div id="tab-socials" class="fade-in space-y-3">
+                    <a href="https://www.instagram.com/nuarfa_yang/" target="_blank" class="glass-card p-3 flex items-center justify-between group">
+                        <div class="flex items-center gap-4">
+                            <div class="w-10 h-10 rounded-full bg-gradient-to-br from-purple-500 to-pink-500 flex items-center justify-center text-white shadow-md">
+                                <i class="ph-bold ph-instagram-logo text-xl"></i>
+                            </div>
+                            <span class="font-medium text-slate-700">Instagram</span>
+                        </div>
+                        <i class="ph-bold ph-caret-right text-slate-300 group-hover:text-pink-400 transition-colors"></i>
+                    </a>
+
+                    <a href="https://x.com/cnt1631053?s=11"  target="_blank" class="glass-card p-3 flex items-center justify-between group">
+                        <div class="flex items-center gap-4">
+                            <div class="w-10 h-10 rounded-full bg-slate-800 flex items-center justify-center text-white shadow-md">
+                                <i class="ph-bold ph-x-logo text-xl"></i>
+                            </div>
+                            <span class="font-medium text-slate-700">Twitter (X)</span>
+                        </div>
+                        <i class="ph-bold ph-caret-right text-slate-300 group-hover:text-pink-400 transition-colors"></i>
+                    </a>
+
+                    <a href="https://www.facebook.com/profile.php?id=61559865754403" target="_blank" class="glass-card p-3 flex items-center justify-between group">
+                        <div class="flex items-center gap-4">
+                            <div class="w-10 h-10 rounded-full bg-blue-600 flex items-center justify-center text-white shadow-md">
+                                <i class="ph-bold ph-facebook-logo text-xl"></i>
+                            </div>
+                            <span class="font-medium text-slate-700">Facebook Page</span>
+                        </div>
+                        <i class="ph-bold ph-caret-right text-slate-300 group-hover:text-pink-400 transition-colors"></i>
+                    </a>
+
+                    <a href="https://www.tiktok.com/@.003289" target="_blank" class="glass-card p-3 flex items-center justify-between group">
+                        <div class="flex items-center gap-4">
+                            <div class="w-10 h-10 rounded-full bg-black flex items-center justify-center text-white shadow-md">
+                                <i class="ph-bold ph-tiktok-logo text-xl"></i>
+                            </div>
+                            <span class="font-medium text-slate-700">Tiktok</span>
+                        </div>
+                        <i class="ph-bold ph-caret-right text-slate-300 group-hover:text-pink-400 transition-colors"></i>
+                    </a>
+
+                    <div class="mt-6 pt-4 border-t border-dashed border-slate-200 text-center">
+                         <div class="inline-block p-2 rounded-full bg-pink-50 text-pink-500 mb-2">
+                            <i class="ph-duotone ph-envelope-simple text-2xl"></i>
+                         </div>
+                         <p class="text-xs text-slate-400 mb-1">Business Inquiries</p>
+                         <a href="mailto:cnt.140200@gmail.com" class="text-sm font-semibold text-slate-600 hover:text-pink-500 transition-colors">cnt.140200@gmail.com</a>
+                    </div>
+                </div>
+
+                <div id="tab-commissions" class="hidden fade-in space-y-4">
+                    
+                    <a href="https://www.facebook.com/profile.php?id=61559865754403" target="_blank" class="glass-card p-3 flex items-center justify-between group">
+                        <div class="flex items-center gap-4">
+                            <div class="w-10 h-10 rounded-full bg-blue-600 flex items-center justify-center text-white shadow-md">
+                                <i class="ph-bold ph-facebook-logo text-xl"></i>
+                            </div>
+                            <span class="font-medium text-slate-700">Facebook Page</span>
+                        </div>
+                        <i class="ph-bold ph-caret-right text-slate-300 group-hover:text-pink-400 transition-colors"></i>
+                    </a>
+
+                    <a href="https://www.instagram.com/nuarfa_yang/" target="_blank" class="glass-card p-3 flex items-center justify-between group">
+                        <div class="flex items-center gap-4">
+                            <div class="w-10 h-10 rounded-full bg-gradient-to-br from-purple-500 to-pink-500 flex items-center justify-center text-white shadow-md">
+                                <i class="ph-bold ph-instagram-logo text-xl"></i>
+                            </div>
+                            <span class="font-medium text-slate-700">Instagram</span>
+                        </div>
+                        <i class="ph-bold ph-caret-right text-slate-300 group-hover:text-pink-400 transition-colors"></i>
+                    </a>
+
+                    <div class="bg-blue-50/50 border border-blue-100 rounded-xl p-4 mt-4">
+                        <h4 class="text-xs font-bold text-blue-600 mb-2 uppercase tracking-wide">Terms of Service</h4>
+                        <ul class="text-xs text-slate-600 space-y-1.5 list-disc pl-4">
+                            <li>Personal use only (Commercial x2)</li>
+                            <li>Paypal / K-Bank accepted</li>
+                            <li>No refund after sketch approval</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div id="tab-gallery" class="hidden fade-in">
+                    <div class="columns-2 gap-3 space-y-3">
+                         <div class="break-inside-avoid glass-card p-1 rounded-xl overflow-hidden group relative">
+                            <img src="https://scontent.furt2-1.fna.fbcdn.net/v/t39.30808-6/576444857_122187737630328858_6400477730301213813_n.jpg?_nc_cat=106&ccb=1-7&_nc_sid=aa7b47&_nc_ohc=7JlWpD_DHhEQ7kNvwHhs0Ck&_nc_oc=AdkF23VxTtHwWGOZXcjfSQKO7pYcN37ARt6W-E1xnfaZPTgGtH9sEVVJfLCQUGj-fBQUjWMEv6sKMA-Qrtv4c49I&_nc_zt=23&_nc_ht=scontent.furt2-1.fna&_nc_gid=OYu0GcGGkANpeWcwu9JwDg&oh=00_Afk4tzEoqu5-Xlp8iBqk7ytoL3-vG0dhynr-7y17SYa-Zg&oe=6954781F" class="w-full h-auto rounded-lg">
+                            <div class="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                                <i class="ph-fill ph-heart text-white text-2xl drop-shadow-md"></i>
+                            </div>
+                        </div>
+                        
+                        <div class="break-inside-avoid glass-card p-1 rounded-xl overflow-hidden group relative">
+                             <img src="https://scontent.furt2-1.fna.fbcdn.net/v/t39.30808-6/565665572_122185228454328858_4546590151104428188_n.jpg?_nc_cat=111&ccb=1-7&_nc_sid=aa7b47&_nc_ohc=6Envcf4IN5QQ7kNvwHUvZqA&_nc_oc=AdkSMpw3vhxdCe9l6XrhbByqmVVCBF1rj9gjUWe7McRRjRBYUyFi-2sQyYfQLkCVAtTfmpRxkKpb5KmRvVHU0pee&_nc_zt=23&_nc_ht=scontent.furt2-1.fna&_nc_gid=d-UmEOB0jcZIUEltNjDe7w&oh=00_Afn4xfaX5OEDKOKJuO5p-dBzLQnMxfKJbbuNr8yPqjK3yA&oe=69547916" class="w-full h-auto rounded-lg">
+                             <div class="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                                <i class="ph-fill ph-heart text-white text-2xl drop-shadow-md"></i>
+                            </div>
+                        </div>
+
+                        <div class="break-inside-avoid glass-card p-1 rounded-xl overflow-hidden group relative">
+                            <img src="https://scontent.furt2-1.fna.fbcdn.net/v/t39.30808-6/561627446_122184855284328858_4774814225033341360_n.jpg?stp=dst-jpg_s1080x2048_tt6&_nc_cat=105&ccb=1-7&_nc_sid=aa7b47&_nc_ohc=KLhMrYpa7pkQ7kNvwFrZOOL&_nc_oc=AdkCpK92pWuuUAn89Gp7FQwicylBKh10bRiQ6XZefa4bLt9buRY32J_0zzWO4Mvgqd1yRU2fRZ8AYwPVlW5aPc9b&_nc_zt=23&_nc_ht=scontent.furt2-1.fna&_nc_gid=KKzXFSg1fUF3v7XYWh6BCg&oh=00_AfmErMSV513-syFAOslH27ys42WbbgnsFod80MzycW5Ppg&oe=69549CFB" class="w-full h-auto rounded-lg">
+                            <div class="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                                <i class="ph-fill ph-heart text-white text-2xl drop-shadow-md"></i>
+                            </div>
+                        </div>
+                        
+                        <div class="break-inside-avoid glass-card p-1 rounded-xl overflow-hidden group relative">
+                            <img src="https://scontent.furt2-1.fna.fbcdn.net/v/t39.30808-6/523409260_122188477172329639_3929893009686766570_n.jpg?_nc_cat=103&ccb=1-7&_nc_sid=f727a1&_nc_ohc=V0YrRv2N6s8Q7kNvwFpaQ9e&_nc_oc=Admue9Rd-HoyVuiwravj5Z9YoIG-_Z9dxyZns3h8BHpcCa7AfkwjcERORRY78GHUBVD_tM6LYOT2OC6KN6Y88AGV&_nc_zt=23&_nc_ht=scontent.furt2-1.fna&_nc_gid=wDS5HtBuFXUiw4g2TTgL0A&oh=00_AfmWBUsD8fS-vz289B3E7Q2LwBEp6FppugA0amlR8l4czA&oe=6954924F" class="w-full h-auto rounded-lg">
+                            <div class="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                                <i class="ph-fill ph-heart text-white text-2xl drop-shadow-md"></i>
+                            </div>
+                        </div>
+                        <div class="break-inside-avoid glass-card p-1 rounded-xl overflow-hidden group relative">
+                            <img src="https://scontent.furt2-1.fna.fbcdn.net/v/t39.30808-6/524177679_122188477826329639_664218408053813888_n.jpg?_nc_cat=103&ccb=1-7&_nc_sid=f727a1&_nc_ohc=wSy3Iqq26bMQ7kNvwELNPla&_nc_oc=Adn820GshiEBUxB2UrFg9xnMGz64P6x_qYPj2U6T23yFSVVvU0RPkJrUtTVUb1BFN8GWF28deSxof7GslXgl99sK&_nc_zt=23&_nc_ht=scontent.furt2-1.fna&_nc_gid=5dJ6bwRV670fwECq7wm6lA&oh=00_AfkEd6lQFxHtVS2pNetILll5O7rLQ4TfEargPFAeLJqEGA&oe=69548147" class="w-full h-auto rounded-lg">
+                            <div class="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                                <i class="ph-fill ph-heart text-white text-2xl drop-shadow-md"></i>
+                            </div>
+                        </div>
+                        <div class="break-inside-avoid glass-card p-1 rounded-xl overflow-hidden group relative">
+                            <img src="https://scontent.furt2-1.fna.fbcdn.net/v/t39.30808-6/523334051_122188477742329639_809472228841294752_n.jpg?_nc_cat=100&ccb=1-7&_nc_sid=f727a1&_nc_ohc=4fhJ-lokb5MQ7kNvwHDGOB0&_nc_oc=Adl4B2yT1rWC2rMm_wfpSJV1Ao_7itY4XnuV5N_F2dPgoP48jDY-uzNllMCsQaCBq58g4m_aVRIUGwhadOczYV4X&_nc_zt=23&_nc_ht=scontent.furt2-1.fna&_nc_gid=Qh32eTa8at69tNYqni2kTw&oh=00_AfnsaZPesPVVUlBelWrhiIBx1GdhpnZxJTrca2HKIsSD6A&oe=69547A02" class="w-full h-auto rounded-lg">
+                            <div class="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                                <i class="ph-fill ph-heart text-white text-2xl drop-shadow-md"></i>
+                            </div>
+                        </div>
+                        <div class="break-inside-avoid glass-card p-1 rounded-xl overflow-hidden group relative">
+                            <img src="https://scontent.furt2-1.fna.fbcdn.net/v/t39.30808-6/524236080_122188477784329639_3189005904491305851_n.jpg?_nc_cat=101&ccb=1-7&_nc_sid=f727a1&_nc_ohc=5UpcN8KOhNcQ7kNvwEE-WzS&_nc_oc=AdkFgOaNR_Sj-iS-nqJ-S48DvpsraoWfTcrFmayYj6AqXGKEQavHinDM8GF74EWNuepRaht14DtzVyOVHp96pU9d&_nc_zt=23&_nc_ht=scontent.furt2-1.fna&_nc_gid=3MsZNFCTQbLV9rxOqTgkJg&oh=00_AfkRNkkyJKs_uEIe48nRPuwbR2jaaOQvPdbFVOSo_Gbn8A&oe=69549D60" class="w-full h-auto rounded-lg">
+                            <div class="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                                <i class="ph-fill ph-heart text-white text-2xl drop-shadow-md"></i>
+                            </div>
+                        </div>
+                        <div class="break-inside-avoid glass-card p-1 rounded-xl overflow-hidden group relative">
+                            <img src="https://scontent.furt2-1.fna.fbcdn.net/v/t39.30808-6/521321365_122188477814329639_4859601172468875610_n.jpg?_nc_cat=105&ccb=1-7&_nc_sid=f727a1&_nc_ohc=AdxPdpvH1AYQ7kNvwG5oGd8&_nc_oc=Adn6XEmRBgHoxim7e7SoWC4aPKcDfcLbFPAaeiMF-SZCA1_vGrCUUmvjlTeNEU2cgRBU0DoJ4s5cvnrx3NkwghBB&_nc_zt=23&_nc_ht=scontent.furt2-1.fna&_nc_gid=u7CMHILVh2Rk1SoxLFGRYg&oh=00_AfmKEKk4WoH9F25GcgWlSSQwYT4r7VwUMOLIWXOIuzZPWQ&oe=69548811" class="w-full h-auto rounded-lg">
+                            <div class="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                                <i class="ph-fill ph-heart text-white text-2xl drop-shadow-md"></i>
+                            </div>
+                        </div>
+                        <div class="break-inside-avoid glass-card p-1 rounded-xl overflow-hidden group relative">
+                            <img src="https://scontent.furt2-1.fna.fbcdn.net/v/t39.30808-6/518209277_122187433244329639_5011275156441943669_n.jpg?stp=dst-jpg_s1080x2048_tt6&_nc_cat=102&ccb=1-7&_nc_sid=833d8c&_nc_ohc=n3c18yidPY8Q7kNvwGTi110&_nc_oc=Adm1pArB4X7NGyb9LKTMLCPNcfnvkseu9SizQ_dLVgQkNoVjuzYZ2fqvFZDqSGFWijFOUWOJcINxP0gsud-8ZbTa&_nc_zt=23&_nc_ht=scontent.furt2-1.fna&_nc_gid=koOf2kao3Vfbc3TqbKKV2A&oh=00_Afm91ooN2n5gCy0bDgsWmNUnYyFZgQ3G2FH5_lcW85R6wQ&oe=695474CE" class="w-full h-auto rounded-lg">
+                            <div class="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                                <i class="ph-fill ph-heart text-white text-2xl drop-shadow-md"></i>
+                            </div>
+                        </div>
+                        <div class="break-inside-avoid glass-card p-1 rounded-xl overflow-hidden group relative">
+                            <img src="https://scontent.furt2-1.fna.fbcdn.net/v/t51.75761-15/491893439_17876391192321689_6946962632526592416_n.jpg?stp=dst-jpg_s1080x2048_tt6&_nc_cat=101&ccb=1-7&_nc_sid=127cfc&_nc_ohc=AByYOXTyB-4Q7kNvwGdAIes&_nc_oc=AdlQCSV75A6xD1QJGa3p2kDQQPZN9qYQQFkVHLK8PH2xoCQKYOQhxdGayIz_mbRBk3zRrDDTws_wRq-C7IIki-wB&_nc_zt=23&_nc_ht=scontent.furt2-1.fna&_nc_gid=JQ2MeMJYxOwdVhf-klMR5w&oh=00_Afk2qlsTSa6GbmYYIDqQ2oBaRlCPmc89u-uO6l7JnumgfA&oe=695495C3" class="w-full h-auto rounded-lg">
+                            <div class="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                                <i class="ph-fill ph-heart text-white text-2xl drop-shadow-md"></i>
+                            </div>
+                        </div>
+                        
+                    </div>
+                    
+                    <div class="mt-6 text-center">
+                        <span class="text-[10px] text-pink-400 bg-pink-50 px-3 py-1 rounded-full border border-pink-100">
+                             Do not repost without permission
+                        </span>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="mt-6 text-center">
+            <p class="text-xs text-white/80 font-light drop-shadow-sm">© 2025 nuarfa_yang</p>
+        </div>
+
+    </div>
+
+    <script>
+        function switchTab(tabName) {
+            // Hide all tabs
+            document.getElementById('tab-socials').classList.add('hidden');
+            document.getElementById('tab-commissions').classList.add('hidden');
+            document.getElementById('tab-gallery').classList.add('hidden');
+
+            // Deactivate all buttons
+            const buttons = ['btn-socials', 'btn-commissions', 'btn-gallery'];
+            buttons.forEach(btnId => {
+                document.getElementById(btnId).classList.remove('active');
+            });
+
+            // Show active tab
+            document.getElementById(`tab-${tabName}`).classList.remove('hidden');
+            
+            // Activate button
+            document.getElementById(`btn-${tabName}`).classList.add('active');
+        }
+    </script>
+</body>
+</html>
